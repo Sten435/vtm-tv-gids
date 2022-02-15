@@ -1,0 +1,10 @@
+EEPG API
+There is an EPG api available for the main website that we can integrate with the VTM GO API.
+
+https://vtm.be/tv-gids/api/v2/broadcasts/{date}
+
+{date} is a date in the format YEAR-MONTH-DAY, for example 2019-12-31
+
+https://vtm.be/tv-gids/api/v2/channel/{channel}
+
+Channel is one of the following: vtm, q2, vitaya, caz, vtm-kids, vtm-kids-jr or qmusic
