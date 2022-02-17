@@ -1,13 +1,23 @@
 using Domein;
+using Model;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Presentatie
 {
-    public class vtm_app
+    public class VtmApp
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var lijstProgrammas = new List<Programma>();
-            Console.WriteLine();
+            var date = DateTime.Today.ToString("yyyy-MM-dd");
+            var response = await Api.Fetch($"https://vtm.be/tv-gids/api/v2/broadcasts/{date}");
+
+            var lijstProgrammas = Api.ParseData(response);
+
+            foreach (var progma in lijstProgrammas)
+            {
+                Console.WriteLine(JsonConvert.SerializeObject(progma, Formatting.Indented));
+            }
         }
     }
 }

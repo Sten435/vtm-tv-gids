@@ -77,9 +77,9 @@ namespace Domein
             set => _genre = value;
         }
 
-        private int _duration;
+        private string _duration;
 
-        public int Duration
+        public string Duration
         {
             get => _duration;
             set => _duration = value;
@@ -109,17 +109,17 @@ namespace Domein
             set => _type = value;
         }
 
-        private ProductieLand _landVanAfkomst;
+        private List<ProductieLand> _landVanAfkomst;
 
-        public ProductieLand LandVanAfkomst
+        public List<ProductieLand> LandVanAfkomst
         {
             get => _landVanAfkomst;
             set => _landVanAfkomst = value;
         }
 
         public Programma(string zender, string uuid, DateTime from, DateTime to, string titel, bool rerun, bool live,
-            string beschrijving, string genre, int duration, string image, string imageFormat, string type,
-            ProductieLand landVanAfkomst)
+            string beschrijving, string genre, string duration, string image, string imageFormat, string type,
+            List<ProductieLand> landVanAfkomst)
         {
             Zender = zender;
             Uuid = uuid;
@@ -135,11 +135,9 @@ namespace Domein
             ImageFormat = imageFormat;
             Type = type;
             LandVanAfkomst = landVanAfkomst;
-        }
+        } 
         
-        public Programma(){}
-
-        public DateTime UnixToDate(long unixMiliseconden)
+        public static DateTime UnixToDate(long unixMiliseconden)
         {
             var dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(unixMiliseconden);
             double unixTimeStampInSeconden = dateTimeOffset.ToUnixTimeSeconds();
@@ -147,9 +145,14 @@ namespace Domein
                 .ToLocalTime();
         }
 
-        public bool IsAfgelopen()
+        public static bool IsAfgelopen(Programma p)
         {
-            return DateTime.Now > To;
+            return DateTime.Now > p.To;
+        }
+        
+        public static bool IsBezig(Programma p)
+        {
+            return (DateTime.Now > p.From) && (DateTime.Now < p.To);
         }
     }
 }
