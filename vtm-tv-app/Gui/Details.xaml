@@ -1,0 +1,20 @@
+﻿<Window x:Class="Gui.Details"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gui"
+        ResizeMode="CanMinimize"
+        mc:Ignorable="d"
+        Title="Details" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" SizeToContent="WidthAndHeight">
+    <Grid Name="Dgrid">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Name="image" />
+            <Label Name="programTitle" Margin="5" FontSize="28" FontWeight="Bold"/>
+            <Label Name="duratie" Margin="5,0" FontSize="16" FontWeight="Normal"/>
+            <Label Name="time" Margin="5,0,0,14" FontSize="16" FontWeight="Normal"/>
+            <Border Background="#000000" Height="2" Width="1000"/>
+            <AccessText Name="beschrijving" Margin="10,14,10,8" FontSize="16" FontWeight="Normal" TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -4,10 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gui"
+        ResizeMode="CanMinimize"
+        Background="WhiteSmoke"
+        MaxWidth="1400"
         mc:Ignorable="d"
-        Title="MainWindow" Height="440" Width="600">
-    <StackPanel Margin="50,50">
-        <Label FontSize="20">fsd</Label>
-        <TextBox FontSize="24">Hello World</TextBox>
-    </StackPanel>
+        Title="MainWindow" Loaded="Window_Loaded" SizeToContent="Width">
+    <ScrollViewer>
+        <StackPanel>
+            <StackPanel>
+                <Label Margin="14" FontSize="20" FontWeight="Medium" Content="Volgende Programma's" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            <Grid Name="Grid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
 </Window>
